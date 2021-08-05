@@ -1,31 +1,36 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Dispatch } from "redux";
-import { RouteComponentProps } from "react-router-dom";
-import { List, Typography, Input, Button } from "antd";
-import { homeAction } from "store/action-creators";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
+import { RouteComponentProps } from 'react-router-dom';
+import { List, Typography, Input, Button } from 'antd';
+import homeAction from 'store/action-creators';
 
 interface Props extends RouteComponentProps {
   value: string;
   list: string[] | [];
   getListData: () => void;
+  // eslint-disable-next-line no-unused-vars
   onValueChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const divStyle = {
-  display: "flex",
+  display: 'flex',
   gap: 20,
-  width: 500,
+  width: 500
 };
 
 class Home extends Component<Props> {
-  static defaultProps: Props;
-  navigationTo = () => {
-    this.props.history.push("/detail");
-  };
+  // static defaultProps: Props
   componentDidMount() {
-    this.props.getListData();
+    const { getListData } = this.props;
+    getListData();
   }
+
+  navigationTo = () => {
+    const { history } = this.props;
+    history.push('/detail');
+  };
+
   render() {
     const { value, list, onValueChange } = this.props;
     return (
@@ -54,8 +59,8 @@ class Home extends Component<Props> {
 const { updateInputValueAction } = homeAction;
 const mapStateToProps = (state: any) => {
   return {
-    value: state.getIn(["home", "value"]),
-    list: state.getIn(["home", "list"]),
+    value: state.getIn(['home', 'value']),
+    list: state.getIn(['home', 'list'])
   };
 };
 const mapDispatchToProps = (dispatch: Dispatch) => {
@@ -65,9 +70,9 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
       dispatch(action as any);
     },
     onValueChange: (e: React.ChangeEvent<HTMLInputElement>) => {
-      const value = e.target.value;
+      const { value } = e.target;
       dispatch(updateInputValueAction(value));
-    },
+    }
   };
 };
 

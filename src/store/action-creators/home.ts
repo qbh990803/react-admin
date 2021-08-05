@@ -1,17 +1,17 @@
-import { Dispatch } from "redux";
-import HomeApi from "api/home";
-import { homeConstant } from "../constant";
+import { Dispatch } from 'redux';
+import HomeApi from 'api/home';
+import homeConstant from '../constant';
 
 const { UPDATE_VALUE, INIT_LIST } = homeConstant;
 
 export const updateInputValueAction = (value: string) => ({
   type: UPDATE_VALUE,
-  value,
+  value
 });
 
 export const getListAction = (data: string[]) => ({
   type: INIT_LIST,
-  data,
+  data
 });
 
 export const initListAction = () => async (dispatch: Dispatch) => {

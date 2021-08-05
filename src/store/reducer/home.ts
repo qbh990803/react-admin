@@ -1,5 +1,5 @@
-import { fromJS } from "immutable";
-import { homeConstant } from "../constant";
+import { fromJS } from 'immutable';
+import homeConstant from '../constant';
 
 interface Action {
   type: string;
@@ -7,17 +7,17 @@ interface Action {
 }
 
 const { UPDATE_VALUE, INIT_LIST } = homeConstant;
-const defaultState = fromJS({
-  value: "111",
-  list: [],
+const defaultState: any = fromJS({
+  value: '111',
+  list: []
 });
 
 const home = (state = defaultState, action: Action) => {
   switch (action.type) {
     case UPDATE_VALUE:
-      return state.set("value", action.value);
+      return state.set('value', action.value);
     case INIT_LIST:
-      return state.set("list", action.data);
+      return state.set('list', action.data);
     default:
       return state;
   }

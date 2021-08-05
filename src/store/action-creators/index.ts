@@ -1,3 +1,3 @@
-import * as homeAction from "./home";
+import * as homeAction from './home';
 
-export { homeAction };
+export default homeAction;

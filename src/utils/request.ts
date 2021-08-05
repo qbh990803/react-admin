@@ -1,12 +1,12 @@
-import axios from "axios";
-import { message } from "antd";
+import axios from 'axios';
+import { message } from 'antd';
 
-const BASEURL = "http://localhost:3000/";
+const BASEURL = 'http://localhost:3000/';
 const TIMEOUT = 10000;
 
 const request = axios.create({
   baseURL: BASEURL,
-  timeout: TIMEOUT,
+  timeout: TIMEOUT
 });
 /**
  * @description: 跳转登录页面并携带当前页面路径
@@ -33,10 +33,10 @@ const handleError = (status: number, msg: string) => {
       break;
     case 403:
       message.info({
-        content: "登录过期，请重新登录",
+        content: '登录过期，请重新登录'
       });
       // 清除本地token和清除store中的token对象
-      localStorage.removeItem("token");
+      localStorage.removeItem('token');
       // store.commit('setToken', null);
       setTimeout(() => {
         toLogin();
@@ -44,7 +44,7 @@ const handleError = (status: number, msg: string) => {
       break;
     case 404:
       message.info({
-        content: "网络请求不存在",
+        content: '网络请求不存在'
       });
       break;
     default:
@@ -54,8 +54,8 @@ const handleError = (status: number, msg: string) => {
 // 前置拦截器
 request.interceptors.request.use(
   (config) => {
-    const token = "store.state.token";
-    token && (config.headers.Authorization = token);
+    const token = 'store.state.token';
+    config.headers.Authorization = config.headers.Authorization ?? token;
     return config;
   },
   (error) => {
@@ -65,10 +65,7 @@ request.interceptors.request.use(
 
 // 后置拦截器
 request.interceptors.response.use(
-  (response) =>
-    response.status === 200
-      ? Promise.resolve(response.data)
-      : Promise.reject(response),
+  (response) => (response.status === 200 ? Promise.resolve(response.data) : Promise.reject(response)),
   (error) => {
     const { response } = error;
     // 请求已发出，但是不在2xx的范围

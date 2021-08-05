@@ -1,8 +1,8 @@
-import { combineReducers } from "redux-immutable";
-import home from "./home";
+import { combineReducers } from 'redux-immutable';
+import home from './home';
 
 const reducer = combineReducers({
-  home,
+  home
 });
 
 export default reducer;

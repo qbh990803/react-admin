@@ -1,6 +1,6 @@
-import React from "react";
-import { RouteComponentProps } from "react-router-dom";
-import { Button } from "antd";
+import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
+import { Button } from 'antd';
 
 const Detail = (props: RouteComponentProps) => {
   const navigationTo = () => {

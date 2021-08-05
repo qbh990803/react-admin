@@ -1,8 +1,8 @@
-import request from "utils/request";
+import request from 'utils/request';
 
 class HomeApi {
   async getList() {
-    const res = await request.get("list");
+    const res = await request.get('list');
     return res;
   }
 }

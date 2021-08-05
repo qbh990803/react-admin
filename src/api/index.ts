@@ -1,3 +1,3 @@
-import homeApi from "./home";
+import homeApi from './home';
 
-export { homeApi };
+export default homeApi;

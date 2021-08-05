@@ -1,3 +1,3 @@
-import * as homeConstant from "./home";
+import * as homeConstant from './home';
 
-export { homeConstant };
+export default homeConstant;
