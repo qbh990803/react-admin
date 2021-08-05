@@ -30,10 +30,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format": "prettier --write ./src",
+    "lint": "eslint ./src --ext .js,.ts,.tsx",
+    "lint-fix": "eslint --fix ./src --ext .js,.ts,.tsx"
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": "eslint .eslintrc.js --fix"
+    "*.{js,ts,tsx}": "eslint --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -54,12 +57,17 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "@types/mockjs": "^1.0.3",
     "@types/react": "^17.0.11",
     "@types/react-router-dom": "^5.1.7",
     "@types/redux-immutable": "^4.0.1",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^6.3.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
@@ -72,5 +80,10 @@
     "lint-staged": "^11.1.1",
     "mockjs": "^1.1.0",
     "prettier": "^2.3.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
   }
 }
