@@ -1,6 +1,6 @@
 module.exports = {
-  plugins: [],
-  extends: ['stylelint-config-standard', 'stylelint-config-recess-order'],
+  plugins: ['stylelint-declaration-block-no-ignored-properties'],
+  extends: ['stylelint-config-standard', 'stylelint-config-recess-order', 'stylelint-config-prettier'],
   rules: {
     "comment-empty-line-before": null,
     "function-name-case": ["lower", { "ignoreFunctions": ["/colorPalette/"] }],
