@@ -8,9 +8,10 @@ const request = axios.create({
   baseURL: BASEURL,
   timeout: TIMEOUT
 });
+
 /**
- * @description: 跳转登录页面并携带当前页面路径
- * @return {void}
+ * @description 跳转登录页面并携带当前页面路径
+ * @returns {void}
  */
 const toLogin = () => {
   //   router.replace({
@@ -20,11 +21,11 @@ const toLogin = () => {
   //     }
   // });
 };
+
 /**
- * @description: 请求错误统一处理
+ * @description 请求错误统一处理
  * @param {number} status 状态
- * @param {string} message 信息
- * @return {*}
+ * @param {string} msg 错误信息
  */
 const handleError = (status: number, msg: string) => {
   switch (status) {

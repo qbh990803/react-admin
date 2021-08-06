@@ -7,6 +7,7 @@ module.exports = {
     "no-invalid-double-slash-comments": null,
     "no-descending-specificity": null,
     "no-invalid-position-at-import-rule": null,
-    "declaration-empty-line-before": null
+    "declaration-empty-line-before": null,
+    "plugin/declaration-block-no-ignored-properties": true
   }
 }

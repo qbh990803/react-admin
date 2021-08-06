@@ -3,6 +3,7 @@ import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Home from 'pages/home';
 import Detail from 'pages/detail';
 
+// eslint-disable-next-line
 function App() {
   return (
     <div className="App">
