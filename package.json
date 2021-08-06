@@ -33,10 +33,13 @@
     "prepare": "husky install",
     "format": "prettier --write ./src",
     "lint": "eslint ./src --ext .js,.ts,.tsx",
-    "lint-fix": "eslint --fix ./src --ext .js,.ts,.tsx"
+    "lint-fix": "eslint --fix ./src --ext .js,.ts,.tsx",
+    "stylelint": "stylelint ./src ---aei .css,.less,.scss",
+    "stylelint-fix": "stylelint --fix ./src ---aei .css,.less,.scss"
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": "eslint --fix"
+    "*.{js,ts,tsx}": "eslint --fix",
+    "*.{css,less,scss}": "stylelint --fix"
   },
   "eslintConfig": {
     "extends": [
